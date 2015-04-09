@@ -230,13 +230,11 @@ class Yomu
       '-m -j'
     when :mimetype
       '-m -j'
-    when :all
-      '-m -j -t -h'
     end
 
     @@server_port = custom_port || DEFAULT_SERVER_PORT
     
-    @@server_pid = Process.spawn("#{java} -Djava.awt.headless=true -jar #{Yomu::JARPATH} --server --port #{@@server_port} #{switch} --encoding=utf8")
+    @@server_pid = Process.spawn("#{java} -Djava.awt.headless=true -jar #{Yomu::JARPATH} --server --port #{@@server_port} #{switch} --encoding=UTF8")
     sleep(2) # Give the server 2 seconds to spin up.
     @@server_pid
   end
